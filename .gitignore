@@ -1,0 +1,8 @@
+
+target/classes/com/luolei/novel/sys/domain/SysLog.class
+*.class
+*.log
+*.xml
+*.gz
+*.iml
+*.yml
