@@ -1,10 +1,10 @@
 package com.luolei.novel.sys.controller;
 
+import com.luolei.novel.sys.annotation.Action;
 import com.luolei.novel.sys.common.HttpResult;
 import com.luolei.novel.sys.common.JwtUtil;
 import com.luolei.novel.sys.domain.SysUser;
 import com.luolei.novel.sys.service.UserService;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,13 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Map;
 
 @RestController
-@Slf4j
 public class LoginController {
 
     @Autowired
     private UserService userService;
 
     @RequestMapping("/login")
+    @Action(name = "登录")
     public HttpResult login(@RequestBody Map<String,String> map) {
         String loginName = map.get("loginName");
         String passWord = map.get("passWord");
@@ -46,6 +46,7 @@ public class LoginController {
      * @return
      */
     @RequestMapping("/getUser")
+    @Action(name = "获取用户信息")
     public HttpResult getUser(String loginName) {
         if(!StringUtils.isEmpty(loginName)){
             return HttpResult.success("", userService.getSysUser(loginName));
