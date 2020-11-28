@@ -11,14 +11,15 @@ import javax.servlet.http.HttpServletResponse;
 
 @Log4j2
 public class TokenInterceptor implements HandlerInterceptor {
+
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        //拦截器验证token
         String token = request.getHeader("token");
         if(StringUtils.isEmpty(token)){
             return false;
         }
         boolean verify = JwtUtil.verity(token);
-        log.info(verify);
         return verify;
     }
 

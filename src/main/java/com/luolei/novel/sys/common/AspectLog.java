@@ -33,7 +33,6 @@ public class AspectLog {
         Object result;
         currentTime.set(System.currentTimeMillis());
         result = joinPoint.proceed();
-        System.out.println(System.currentTimeMillis() - currentTime.get());
         currentTime.remove();
         HttpServletRequest request = ((ServletRequestAttributes) Objects.requireNonNull(RequestContextHolder.getRequestAttributes())).getRequest();
 //        logService.save(getUsername(), StringUtils.getBrowser(request), StringUtils.getIp(request),joinPoint, log);

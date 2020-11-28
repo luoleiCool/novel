@@ -13,7 +13,7 @@ import java.sql.Timestamp;
 @Data
 @Getter
 @Setter
-@TableName("syslog")
+@TableName("sys_log")
 @NoArgsConstructor
 public class SysLog implements Serializable {
     private static final long serialVersionUID = 1L;
