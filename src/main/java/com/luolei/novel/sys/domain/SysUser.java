@@ -1,5 +1,6 @@
 package com.luolei.novel.sys.domain;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
@@ -8,12 +9,10 @@ import lombok.Setter;
 import org.springframework.data.annotation.Id;
 
 @Data
-@Getter
-@Setter
 @TableName("user")
 public class SysUser {
 
-    @TableId
+    @TableId(type = IdType.AUTO)
     private Integer id;
 
     /**

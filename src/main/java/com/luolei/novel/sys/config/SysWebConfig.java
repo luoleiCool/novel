@@ -12,8 +12,9 @@ public class SysWebConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new TokenInterceptor())
-                .addPathPatterns("/**")
-                .excludePathPatterns("/loginout")
-                .excludePathPatterns("/login");
+                .excludePathPatterns("/login")
+                .excludePathPatterns("/loginOut")
+                .addPathPatterns("/**");
+
     }
 }

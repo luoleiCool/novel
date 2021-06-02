@@ -26,12 +26,13 @@ public class LoginController {
         String passWord = map.get("passWord");
         //身份验证
         boolean isSuccess =  userService.checkSysUser(loginName,passWord);
+
         if (isSuccess) {
             //模拟数据库查询
             SysUser user = userService.getSysUser(loginName);
             if (user != null) {
                 //返回token
-                String token = JwtUtil.sign(loginName, passWord);
+                String token = JwtUtil.sign(loginName, user.getId());
                 if (token != null) {
                     return HttpResult.success("成功",token);
                 }

@@ -4,10 +4,10 @@ server:
     context-path: /novel
 spring:
   datasource:
-#    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://106.52.146.60:3306/novel
-    username: novel
-    password: luolei_novel
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/novel?serverTimezone=UTC
+    username: root
+    password: 123456
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
       # 下面为连接池的补充设置，应用到上面所有数据源中

@@ -1,5 +1,7 @@
 package com.luolei.novel.sys.domain;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
@@ -11,53 +13,50 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 @Data
-@Getter
-@Setter
 @TableName("sys_log")
 @NoArgsConstructor
 public class SysLog implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    @TableId
-    private Long id;
+    @TableId(type = IdType.AUTO)
+    private Integer id;
 
     /** 操作用户 */
-    private String username;
+    @TableField("user_name")
+    private String userName;
 
     /** 描述 */
+    @TableField("description")
     private String description;
 
     /** 方法名 */
+    @TableField("method")
     private String method;
 
     /** 参数 */
+    @TableField("params")
     private String params;
 
-    /** 日志类型 */
-    private String logType;
 
     /** 请求ip */
+    @TableField("request_ip")
     private String requestIp;
 
     /** 地址 */
+    @TableField("address")
     private String address;
 
-    /** 浏览器  */
-    private String browser;
 
     /** 请求耗时 */
-    private Long time;
+    @TableField("time")
+    private String time;
 
-    /** 异常详细  */
-    private byte[] exceptionDetail;
 
     /** 创建日期 */
-    private Timestamp createTime;
+    @TableField("create_time")
+    private String createTime;
 
-    public SysLog(String logType, Long time) {
-        this.logType = logType;
-        this.time = time;
-    }
+
 
 
 }

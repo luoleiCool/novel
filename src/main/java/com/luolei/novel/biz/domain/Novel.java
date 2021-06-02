@@ -1,5 +1,7 @@
 package com.luolei.novel.biz.domain;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.Getter;
@@ -13,7 +15,7 @@ import java.io.Serializable;
 @TableName("novel")
 public class Novel implements Serializable {
 
-
+    @TableId(type = IdType.AUTO)
     private Integer id;
     /**
      * 小说名称
